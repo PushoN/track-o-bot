@@ -6,6 +6,7 @@
 
 #ifdef Q_OS_MAC
 #include <objc/objc-runtime.h>
+#include <objc/message.h>
 #endif
 
 #include <cassert>
@@ -183,16 +184,27 @@ Overlay::Overlay( QWidget *parent )
   hide();
 
 #ifdef Q_OS_MAC
+  // WId windowObject = this->winId();
+  // objc_object* nsviewObject = reinterpret_cast<int>(windowObject);
+  // objc_object* nsWindowObject = objc_msgSend( nsviewObject, sel_registerName("window") );
+  // int NSWindowCollectionBehaviorCanJoinAllSpaces = 1 << 0;
+  // objc_msgSend( nsWindowObject, sel_registerName("setCollectionBehavior:"), NSWindowCollectionBehaviorCanJoinAllSpaces );
+
+  // // Ignore mouse events on Mac
+  // // Qt::WindowTransparentForInput bug
+  // // https://bugreports.qt.io/browse/QTBUG-45498
+  // objc_msgSend( nsWindowObject, sel_registerName("setIgnoresMouseEvents:"), 1 );
+
   WId windowObject = this->winId();
   objc_object* nsviewObject = reinterpret_cast<objc_object*>(windowObject);
-  objc_object* nsWindowObject = objc_msgSend( nsviewObject, sel_registerName("window") );
+  objc_object* nsWindowObject = ((id (*)(id, SEL))objc_msgSend)(nsviewObject, sel_registerName("window"));
   int NSWindowCollectionBehaviorCanJoinAllSpaces = 1 << 0;
-  objc_msgSend( nsWindowObject, sel_registerName("setCollectionBehavior:"), NSWindowCollectionBehaviorCanJoinAllSpaces );
+  ((id (*)(id, SEL, int))objc_msgSend)(nsWindowObject, sel_registerName("setCollectionBehavior:"), NSWindowCollectionBehaviorCanJoinAllSpaces);
 
   // Ignore mouse events on Mac
   // Qt::WindowTransparentForInput bug
   // https://bugreports.qt.io/browse/QTBUG-45498
-  objc_msgSend( nsWindowObject, sel_registerName("setIgnoresMouseEvents:"), 1 );
+  ((id (*)(id, SEL, int))objc_msgSend)(nsWindowObject, sel_registerName("setIgnoresMouseEvents:"), 1);
 #endif
 }
 

@@ -7,6 +7,7 @@
 #include <QStringList>
 #include <QTimer>
 #include <QDir>
+#include <iostream>
 
 // Hero Power Card Ids: Auto generated
 const int NUM_HERO_POWER_CARDS = 115;
@@ -15,7 +16,7 @@ const char HERO_POWER_CARD_IDS[NUM_HERO_POWER_CARDS][32] = {
 };
 
 // Hero Ids: Must match HeroClass enum
-const int NUM_HEROES = 9;
+const int NUM_HEROES = 10;
 const char HERO_IDS[NUM_HEROES][32] = {
   "HERO_09", // CLASS_PRIEST = 0,
   "HERO_03", // CLASS_ROGUE,
@@ -25,7 +26,8 @@ const char HERO_IDS[NUM_HEROES][32] = {
   "HERO_07", // CLASS_WARLOCK,
   "HERO_05", // CLASS_HUNTER,
   "HERO_02", // CLASS_SHAMAN,
-  "HERO_06" // CLASS_DRUID,
+  "HERO_06", // CLASS_DRUID,
+  "HERO_10" // CLASS_DEMONHUNTER
 };
 
 Q_DECLARE_METATYPE( ::CardHistoryList );
@@ -320,6 +322,7 @@ void HearthstoneLogTracker::OnZoneChange( const QVariantMap& args ) {
       // (e.g. HERO_01a instead of HERO_01)
       if( cardId.startsWith( HERO_IDS[ i ] ) ) {
         hero = ( HeroClass )i;
+        std::cout << hero << std::endl;
       }
     }
 
