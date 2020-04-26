@@ -1,5 +1,4 @@
 TARGET = Track-o-Bot
-VERSION = 0.9.1
 
 CONFIG += qt precompile_header debug_and_release c++11
 QT += core widgets network xml
@@ -63,7 +62,7 @@ FORMS   = src/ui/MainWindow.ui \
           src/ui/AboutWidget.ui \
           src/ui/Overlay.ui
 
-DEFINES += VERSION=\\\"$$VERSION\\\"
+DEFINES += VERSION=0.9.0
 
 RESOURCES += resources.qrc
 
@@ -102,8 +101,7 @@ win32 {
 
   DEFINES += PLATFORM=\\\"win32\\\"
 
-  INCLUDEPATH += . \
-                 ../WinSparkle/include
+  INCLUDEPATH += ../stuff/WinSparkle/include \ ../stuff/WinSparkle/
 
   SOURCES += src/WinWindowCapture.cpp \
              src/WinSparkleUpdater.cpp

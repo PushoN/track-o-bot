@@ -4,6 +4,8 @@
 #include <QTimer>
 
 #include "WindowCapture.h"
+#include "Logger.h"
+#include "Local.h"
 
 const int NUM_LOG_MODULES = 5;
 const char LOG_MODULE_NAMES[ NUM_LOG_MODULES ][ 32 ] = {

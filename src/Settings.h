@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QString>
+#include "Local.h"
 
 class Settings : public QObject
 {

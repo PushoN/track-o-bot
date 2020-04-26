@@ -1,7 +1,7 @@
 #pragma once
 
-#include <QApplication>
-#include <QLocalServer>
+#include <QtWidgets/QApplication>
+#include <QtNetwork/QLocalServer>
 
 #include "ResultTracker.h"
 #include "WebProfile.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QMainWindow>
+#include <QtWidgets/QMainWindow>
 #include <QVariantMap>
 #include <QPainter>
 #include <QTimer>

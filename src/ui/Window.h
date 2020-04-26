@@ -1,11 +1,11 @@
 #pragma once
 
-#include <QAction>
-#include <QDialog>
-#include <QSystemTrayIcon>
-#include <QMenu>
-#include <QMainWindow>
-#include <QStatusBar>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QSystemTrayIcon>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QStatusBar>
 
 #include "LogTab.h"
 #include "AccountTab.h"

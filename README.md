@@ -1,6 +1,14 @@
+
+# This is my attempt to bring Track-O-Bot to life
+
+I am currently trying to compile this project so I would add Demon Hunter and maybe make some changes to code.
+Version for macOS is currently broken, Obj-C RunTime has changed but that was easy to fix. There are still problems.
+For now there is no new feature or patches. Just small fixes which could lead to something.
+
+
 # Build Dependencies
 
-* Qt 5.7
+* Qt 5.7 (for now)
 * Ruby (any stable version)
 * (OS X) Sparkle
 * (Windows) WinSparkle
@@ -45,10 +53,6 @@ nmake
 ```
 
 The resulting binary can be found in the ``build`` subfolder.
-
-# Contributing
-
-Feel free to submit pull requests, suggest new ideas and discuss issues. Track-o-Bot is about simplicity and usability. Only features which benefit all users will be considered. 
 
 # License
 

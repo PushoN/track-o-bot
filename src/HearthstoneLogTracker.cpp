@@ -1,13 +1,13 @@
 #include "HearthstoneLogTracker.h"
 #include "Hearthstone.h"
 #include "Settings.h"
+#include "Local.h"
 
 #include <QRegExp>
 #include <QRegularExpression>
 #include <QStringList>
 #include <QTimer>
 #include <QDir>
-#include <iostream>
 
 // Hero Power Card Ids: Auto generated
 const int NUM_HERO_POWER_CARDS = 115;
@@ -100,6 +100,7 @@ void HearthstoneLogTracker::OnActionStart( const QVariantMap& args ) {
 
     bool isHeroPower = false;
     for( int i = 0; i < NUM_HERO_POWER_CARDS; i++ ) {
+      //std::cout << isHeroPower << std::endl;
       if( cardId == HERO_POWER_CARD_IDS[ i ] ) {
         isHeroPower = true;
         break;
@@ -322,7 +323,6 @@ void HearthstoneLogTracker::OnZoneChange( const QVariantMap& args ) {
       // (e.g. HERO_01a instead of HERO_01)
       if( cardId.startsWith( HERO_IDS[ i ] ) ) {
         hero = ( HeroClass )i;
-        std::cout << hero << std::endl;
       }
     }
 

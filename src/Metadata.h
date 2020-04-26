@@ -4,6 +4,8 @@
 #include <QMap>
 #include <QImage>
 
+#include "Local.h"
+
 class Metadata
 {
   DEFINE_SINGLETON( Metadata );

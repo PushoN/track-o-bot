@@ -1,7 +1,7 @@
 #include "WinSparkleUpdater.h"
 
 #include <winsparkle.h>
-#include <QApplication>
+#include <QtWidgets/QApplication>
 
 #define WIDEN(str) WIDEN_(str)
 #define WIDEN_(str) L##str
@@ -9,11 +9,11 @@
 WinSparkleUpdater::WinSparkleUpdater( const QString& url )
 {
   win_sparkle_set_appcast_url( url.toUtf8().data() );
-  win_sparkle_set_app_details(
-    qApp->organizationName().toStdWString().c_str(),
-    qApp->applicationName().toStdWString().c_str(),
-    WIDEN(VERSION)
-  );
+  // win_sparkle_set_app_details(
+  //   qApp->organizationName().toStdWString().c_str(),
+  //   qApp->applicationName().toStdWString().c_str(),
+  //   WIDEN(VERSION)
+  // );
 
   win_sparkle_init();
 }

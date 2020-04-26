@@ -2,7 +2,7 @@
 #include "Settings.h"
 #include "Hearthstone.h"
 
-#include <QtXml>
+#include <QtXml/QtXml>
 #include <cassert>
 
 #define HEARTHSTONE_JSON_API_URL "https://api.hearthstonejson.com/v1"

@@ -3,8 +3,8 @@
 
 #include "../Settings.h"
 
-#include <QFileDialog>
-#include <QMessageBox>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMessageBox>
 
 AccountTab::AccountTab( QWidget *parent )
   : QWidget( parent ), mUI( new Ui::AccountWidget )

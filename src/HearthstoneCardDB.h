@@ -3,11 +3,11 @@
 #include <QMap>
 #include <QString>
 #include <QVariant>
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkReply>
 
-#include <QtXml>
+#include <QtXml/QtXml>
 
 class HearthstoneCardDB : public QObject
 {

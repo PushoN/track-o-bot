@@ -1,7 +1,7 @@
 #pragma once
 
 #include "WindowCapture.h"
-
+#ifdef Q_OS_MAC
 #include <ApplicationServices/ApplicationServices.h>
 #include <QTimer>
 
@@ -33,3 +33,4 @@ public:
 
   bool HasFocus();
 };
+#endif

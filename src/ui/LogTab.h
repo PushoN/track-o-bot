@@ -1,6 +1,7 @@
 #pragma once
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
+#include "../Logger.h"
 
 namespace Ui { class LogWidget; }
 

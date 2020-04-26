@@ -1,6 +1,7 @@
 #pragma once
 
 #include <time.h>
+#include "Local.h"
 
 #include <QFile>
 #include <QString>

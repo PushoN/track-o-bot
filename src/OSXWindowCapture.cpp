@@ -1,5 +1,5 @@
 #include "OSXWindowCapture.h"
-
+#ifdef Q_OS_MAC
 #include <QtMac>
 
 // remove the window title bar which we are not interested in
@@ -116,3 +116,4 @@ bool OSXWindowCapture::ExtractWindowProperties( int windowId, CGRect *rect, bool
 bool OSXWindowCapture::HasFocus() {
   return mFocus;
 }
+#endif

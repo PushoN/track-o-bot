@@ -3,6 +3,7 @@
 #include "HearthstoneLogWatcher.h"
 #include "HearthstoneLogLineHandler.h"
 #include "Result.h"
+#include "Local.h"
 
 class HearthstoneLogTracker : public QObject
 {

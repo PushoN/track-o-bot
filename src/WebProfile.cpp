@@ -1,7 +1,7 @@
 #include "WebProfile.h"
 
-#include <QNetworkRequest>
-#include <QNetworkReply>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkReply>
 #include <QUrl>
 #include <QTimer>
 #include <QDesktopServices>
@@ -13,6 +13,7 @@
 #include "Hearthstone.h"
 
 #include "Settings.h"
+#include "Local.h"
 
 #define DEFAULT_WEBSERVICE_URL "https://trackobot.com"
 

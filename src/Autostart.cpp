@@ -1,6 +1,6 @@
 #include "Autostart.h"
 
-#include <QApplication>
+#include <QtWidgets/QApplication>
 #include <QDir>
 #include <QString>
 #include <QSettings>

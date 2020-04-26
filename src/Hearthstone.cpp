@@ -21,11 +21,12 @@
 #endif
 
 #include "Settings.h"
+#include "Logger.h"
 
 #define SLOW_UPDATE_INTERVAL 5000
 #define FAST_UPDATE_INTERVAL 250
 
-DEFINE_SINGLETON_SCOPE( Hearthstone )
+DEFINE_SINGLETON_SCOPE( Hearthstone );
 
 Hearthstone::Hearthstone()
  : mCapture( NULL ), mGameRunning( false ), mGameHasFocus( false )

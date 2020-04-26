@@ -1,9 +1,9 @@
 #pragma once
 
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkRequest>
 #include <QSettings>
-#include <QSslError>
+#include <QtNetwork/QSslError>
 #include <QJsonObject>
 
 class WebProfile : public QObject

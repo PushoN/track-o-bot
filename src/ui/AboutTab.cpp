@@ -1,5 +1,6 @@
 #include "AboutTab.h"
 #include "ui_AboutWidget.h"
+#include "../Local.h"
 
 AboutTab::AboutTab( QWidget *parent )
   : QWidget( parent ), mUI( new Ui::AboutWidget )
