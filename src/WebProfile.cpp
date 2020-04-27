@@ -1,7 +1,10 @@
 #include "WebProfile.h"
 
+#include <QtCore/QDebug>
+#include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkReply>
+#include <QtNetwork/QSslConfiguration>
 #include <QUrl>
 #include <QTimer>
 #include <QDesktopServices>

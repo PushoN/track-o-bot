@@ -1,9 +1,9 @@
 
-# This is my attempt to bring Track-O-Bot to life
+# What is working and what is not
 
-I am currently trying to compile this project so I would add Demon Hunter and maybe make some changes to code.
-Version for macOS is currently broken, Obj-C RunTime has changed but that was easy to fix. There are still problems.
-For now there is no new feature or patches. Just small fixes which could lead to something.
+* I have to test if Demon Hunter is correctly detected and stored to profile
+* Open profile is not working
+* Hearhstone Detection is broken on MacOS
 
 
 # Build Dependencies
@@ -13,7 +13,7 @@ For now there is no new feature or patches. Just small fixes which could lead to
 * (OS X) Sparkle
 * (Windows) WinSparkle
 
-## Mac OS X
+## MacOS
 
 ```
 brew install qt5

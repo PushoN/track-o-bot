@@ -7,9 +7,9 @@
 # see https://bugreports.qt-project.org/browse/QTBUG-13400
 
 unless File.read('Track-o-Bot_resource.rc').include?('ICON')
-  File.open('Track-o-Bot_resource.rc', 'a') do |f|
-    f.puts "IDI_ICON1   ICON    DISCARDABLE icons/win.ico"
-  end
+ File.open('Track-o-Bot_resource.rc', 'a') do |f|
+   f.puts "IDI_ICON1   ICON    DISCARDABLE icons/win.ico"
+ end
 end
 
 # Recompile

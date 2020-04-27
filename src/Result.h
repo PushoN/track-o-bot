@@ -73,6 +73,7 @@ typedef enum {
   CLASS_HUNTER,
   CLASS_SHAMAN,
   CLASS_DRUID,
+  CLASS_DEMONHUNTER,
   CLASS_UNKNOWN
 } HeroClass;
 
@@ -86,9 +87,10 @@ const char CLASS_NAMES[][128] = {
   "hunter",
   "shaman",
   "druid",
+  "demonHunter",
   "unknown"
 };
-#define NUM_CLASSES 9
+#define NUM_CLASSES 10
 
 #define RANK_UNKNOWN   0
 #define LEGEND_UNKNOWN  0

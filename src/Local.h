@@ -32,12 +32,12 @@ private: \
 #define ERR(str, ...) Logger::Instance()->Add(LOG_ERROR, str, ##__VA_ARGS__)
 #define DBG(str, ...) Logger::Instance()->Add(LOG_DEBUG, str, ##__VA_ARGS__)
   
-#define VERSION "0.9.0"
-#ifdef Q_OS_MAC
-#define PLATFORM "macOS"
-#else
-#define PLATFORM "win32"
-#endif
+// #define VERSION "0.9.0"
+// #ifdef Q_OS_MAC
+// #define PLATFORM "macOS"
+// #else
+// #define PLATFORM "win32"
+// #endif
 
 #include "Metadata.h"
 #define METADATA(key, fmt, ...) Metadata::Instance()->Add(key, fmt, ##__VA_ARGS__)

@@ -1,4 +1,5 @@
 TARGET = Track-o-Bot
+VERSION = 0.9.0
 
 CONFIG += qt precompile_header debug_and_release c++11
 QT += core widgets network xml
@@ -62,7 +63,7 @@ FORMS   = src/ui/MainWindow.ui \
           src/ui/AboutWidget.ui \
           src/ui/Overlay.ui
 
-DEFINES += VERSION=0.9.0
+DEFINES += VERSION=\\\"$$VERSION\\\"
 
 RESOURCES += resources.qrc
 
