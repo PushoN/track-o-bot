@@ -1,5 +1,6 @@
 #include "WebProfile.h"
 
+#include <QVariant>
 #include <QtCore/QDebug>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkRequest>
@@ -12,13 +13,14 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <iostream>
 
 #include "Hearthstone.h"
 
 #include "Settings.h"
 #include "Local.h"
 
-#define DEFAULT_WEBSERVICE_URL "https://trackobot.com"
+#define DEFAULT_WEBSERVICE_URL "http://127.0.0.1:3000"
 
 
 /* According to a comment not happening with Qt 5.8+ */
@@ -109,7 +111,12 @@ QNetworkReply* WebProfile::AuthPostJson( const QString& path, const QByteArray& 
   QNetworkRequest request = CreateWebProfileRequest( path );
   request.setRawHeader( "Authorization", credentials.toLatin1() );
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
-  return mNetworkManager.post( request, data );
+  DBG("sslLibraryBuildVersionString %s", qt2cstr(QSslSocket::sslLibraryBuildVersionString()));
+  DBG("sslLibraryVersionString %s", qt2cstr(QSslSocket::sslLibraryVersionString()));
+  DBG("supportsSsl %d", QSslSocket::supportsSsl());
+  QNetworkReply *reply = mNetworkManager.post( request, data );
+  connect(reply, &QNetworkReply::sslErrors, this, &WebProfile::SSLErrors2); 
+  return reply;
 }
 
 QNetworkRequest WebProfile::CreateWebProfileRequest( const QString& path ) {
@@ -159,9 +166,15 @@ void WebProfile::OpenProfileHandleReply() {
       QString url = response[ "url" ].toString();
       QDesktopServices::openUrl( QUrl( url ) );
     }
+	else
+	{
+		WebProfile::CreateAndStoreAccount();
+	}
   } else {
     int statusCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+    QVariant cookieVar = reply->header(QNetworkRequest::ContentTypeHeader );
     ERR( "There was a problem creating an auth token. Error: %i HTTP Status Code: %i", reply->error(), statusCode );
+    ERR( "Header %s", cookieVar.toString());
   }
 
   reply->deleteLater();
@@ -172,6 +185,9 @@ QString WebProfile::WebserviceURL( const QString& path ) {
     Settings::Instance()->SetWebserviceURL( DEFAULT_WEBSERVICE_URL );
   }
 
+  //todo remove
+  Settings::Instance()->SetWebserviceURL(DEFAULT_WEBSERVICE_URL);
+
   return Settings::Instance()->WebserviceURL() + path;
 }
 
@@ -181,6 +197,8 @@ QString WebProfile::WebserviceURL( const QString& path ) {
 // So allow allow self-signed certificates, just in case
 void WebProfile::SSLErrors(QNetworkReply *reply, const QList<QSslError>& errors) {
   QList<QSslError> errorsToIgnore;
+
+  DBG("here");
 
   for( const QSslError& err : errors ) {
     if( err.error() == QSslError::SelfSignedCertificate ||
@@ -193,5 +211,13 @@ void WebProfile::SSLErrors(QNetworkReply *reply, const QList<QSslError>& errors)
   }
 
   reply->ignoreSslErrors( errorsToIgnore );
+}
+
+void WebProfile::SSLErrors2(const QList<QSslError>& errors) {
+  DBG("here");
+
+  for( const QSslError& err : errors ) {
+    DBG( "SSL Error %d", err.error() );
+  }
 }
 

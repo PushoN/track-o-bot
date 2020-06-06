@@ -14,3 +14,8 @@ Makefile.*
 /scenes/*
 /debug/
 /release/
+/.vs/Track-o-Bot/v15
+/Track-o-Bot.vcxproj.user
+/Track-o-Bot.vcxproj.filters
+/Track-o-Bot.vcxproj
+/Track-o-Bot.sln

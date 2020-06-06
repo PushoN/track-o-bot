@@ -56,7 +56,7 @@ int Trackobot::Run() {
   if( IsAlreadyRunning() )
     return 1;
 
-  //LOG( "Launch v%s on %s", VERSION, qt2cstr( QDate::currentDate().toString( Qt::ISODate ) ) );
+  LOG( "Launch v%s on %s", VERSION, qt2cstr( QDate::currentDate().toString( Qt::ISODate ) ) );
 
   SetupUpdater();
 

@@ -87,7 +87,7 @@ const char CLASS_NAMES[][128] = {
   "hunter",
   "shaman",
   "druid",
-  "demonHunter",
+  "demon_hunter",
   "unknown"
 };
 #define NUM_CLASSES 10

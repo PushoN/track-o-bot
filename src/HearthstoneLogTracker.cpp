@@ -90,7 +90,7 @@ void HearthstoneLogTracker::OnActionStart( const QVariantMap& args ) {
   QString blockType = args[ "blockType" ].toString();
 
   QVariantMap entity = args[ "entity" ].toMap();
-  QString cardId = entity[ "cardId" ].toString();
+  QString cardId = entity["cardId"].toString();;
   int playerId = entity[ "player" ].toInt();
 
   DBG( "OnActionStart %s %s %d", qt2cstr( blockType ), qt2cstr( cardId ), playerId );
@@ -101,10 +101,11 @@ void HearthstoneLogTracker::OnActionStart( const QVariantMap& args ) {
     bool isHeroPower = false;
     for( int i = 0; i < NUM_HERO_POWER_CARDS; i++ ) {
       //std::cout << isHeroPower << std::endl;
-      if( cardId == HERO_POWER_CARD_IDS[ i ] ) {
-        isHeroPower = true;
-        break;
-      }
+		DBG("cardId: %s", qt2cstr( cardId ));
+		if (cardId == HERO_POWER_CARD_IDS[i]) {
+			isHeroPower = true;
+			break;
+		}
     }
     if( isHeroPower ) {
       CardPlayed( player, cardId );

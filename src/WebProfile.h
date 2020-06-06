@@ -23,6 +23,7 @@ private slots:
   void OpenProfileHandleReply();
 
   void SSLErrors( QNetworkReply *reply, const QList<QSslError>& errors );
+  void SSLErrors2( const QList<QSslError>& errors );
 
   QNetworkRequest CreateWebProfileRequest( const QString& path );
 
